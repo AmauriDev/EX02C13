@@ -64,6 +64,7 @@
 *   @count   - An integer variable that stores the total number of accepted inputs and controls the loop condition.
 *   @status  - An integer variable that stores the result returned by scanf()
 *   @c       - A character variable used to retrieve invalid input from the buffer
+*   @currentInput - A float variable to store the current input value from the user
 *   @message - A constant character string stores a custom prompt message
 *
 *   Loop condition:
@@ -103,15 +104,17 @@
 int get_set_of_numbers(float numbers[], const int limit){
     int count = 0, status = 0;
     char c;
+    float currentInput;
     const char *message = "Enter another numbers %d of %d or type 'q' to quit\n";
     printf("Enter a set of real numbers until %d elements or type 'q' to quit\n", limit);
     do{
-        status = scanf("%f", &numbers[count]);
+        status = scanf("%f", &currentInput);
         if(status == 1){
+            numbers[count] = currentInput;
             printf("the input %.2f is accepted\n", numbers[count]);
-            count++;
             if(count < limit)
                 printf(message, count + 1, limit);
+            count++;
         }else{
             scanf(" %c", &c);
             printf("The input '%c' is rejected\n", c);
