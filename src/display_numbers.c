@@ -28,7 +28,7 @@
 * ==============================
 * Process
 * ==============================
-* Print values
+* Print 10 values per line
 *
 * ==============================
 * Output
@@ -39,8 +39,19 @@
 * ==============================
 * Execution flow
 * ==============================
-* For each: @index < @limit
-*   - Print @numbers element
+* Declare variable
+*   @index - An integer variable, it stores increment value for count-controlled loop
+*
+* Condition loop:
+*   @index < @limit
+*
+* Execution step:
+*   For each elements:
+*      - print its value to the user.
+*      - Evaluate if @index % 10 == 9, true print a newline
+*
+* Condition @index % 10 != 0
+*      - Print a newline
 *
 * ==============================
 * Module dependency
@@ -54,6 +65,12 @@
 */
 
 void display_numbers(const float numbers[], const int limit){
-    for(int index = 0; index < limit; index++)
+    int index = 0;
+    for(index = 0; index < limit; index++){
         printf("%.2f\n",  numbers[index]);
+        if(index % 10 == 9)
+            printf("\n");
+    }
+    if(index % 10 != 0)
+        printf("\n");
 }
