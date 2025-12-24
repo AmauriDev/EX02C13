@@ -67,10 +67,11 @@
 void display_numbers(const float numbers[], const int limit){
     int index = 0;
     for(index = 0; index < limit; index++){
-        printf("%.2f",  numbers[index]);
+        printf("%.2f ",  numbers[index]);
         if(index % 10 == 9)
             printf("\n");
     }
     if(index % 10 != 0)
         printf("\n");
+
 }
