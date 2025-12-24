@@ -66,7 +66,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "modules.h"
-#define MAX 10
+#define MAX 100
 
 int main(void){
     float listOfNumbers[MAX];
@@ -74,11 +74,13 @@ int main(void){
 
     count = get_set_of_numbers(listOfNumbers, MAX);
     if(count > 0){
-        puts("Original input numbers");
-        display_numbers(listOfNumbers, MAX);
-        sort_real_numbers(listOfNumbers, MAX);
-        puts("Sorted input numbers");
-        display_numbers(listOfNumbers, MAX);
+        printf("\n----------Details-------------\n");
+        printf("\nOriginal input numbers\n");
+        display_numbers(listOfNumbers, count);
+        sort_real_numbers(listOfNumbers, count);
+        printf("\nSorted input numbers\n");
+        display_numbers(listOfNumbers, count);
+        printf("\n------------End---------------\n");
     }else{
         puts("No data entered");
     }
